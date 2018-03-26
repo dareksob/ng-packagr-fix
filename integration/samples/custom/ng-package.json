@@ -1,7 +1,0 @@
-{
-  "$schema": "../../../src/ng-package.schema.json",
-  "keepLifecycleScripts": true,
-  "lib": {
-    "entryFile": "src/public_api.ts"
-  }
-}
