@@ -4,7 +4,7 @@ For offical documentation see https://github.com/dherges/ng-packagr
 
 `Use the official package as soon as possible`
 
-## What's has been changed
+## What has been changed
 
 ### Ignore return type errors
 @issue https://github.com/dherges/ng-packagr/issues/311

@@ -1,5 +1,5 @@
 {
-  "name": "@dareksob/ng-packagr",
+  "name": "@dareksob/ng-packagr-fix",
   "version": "0.0.1",
   "description": "Compile and package a TypeScript library to Angular Package Format",
   "keywords": [
@@ -14,13 +14,6 @@
     "scss",
     "html"
   ],
-  "author": "David Herges <david@spektrakel.de>",
-  "license": "MIT",
-  "repository": "https://github.com/dherges/ng-packagr.git",
-  "homepage": "https://github.com/dherges/ng-packagr",
-  "bugs": {
-    "url": "https://github.com/dherges/ng-packagr/issues"
-  },
   "bin": {
     "ng-packagr": "./cli/main.js"
   },
@@ -111,7 +104,6 @@
     "typescript": "~2.6.1",
     "zone.js": "^0.8.10"
   },
-  "private": true,
   "scripts": {
     "prebuild": "rimraf dist && yarn schema",
     "build": "tsc -p src/tsconfig.packagr.json",
