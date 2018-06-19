@@ -1,5 +1,4 @@
-import { MonoTypeOperatorFunction } from 'rxjs/interfaces';
-import { Observable } from 'rxjs/Observable';
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { BuildGraph } from './build-graph';
 /**
  * A tranformation applied over the build graph.

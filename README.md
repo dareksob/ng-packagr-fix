@@ -1,5 +1,5 @@
 # ng-packagr 
-This is a copy of ng-packagr@2.4.1 by dherges
+This is a copy of ng-packagr@3.0.3 by dherges
 For offical documentation see https://github.com/dherges/ng-packagr
 
 `Use the official package as soon as possible`

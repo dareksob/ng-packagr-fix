@@ -41,23 +41,11 @@ export interface NgPackageConfig {
          */
         flatModuleFile?: string;
         /**
-         * An array of external dependencies that will be embedded in the final bundle.
-         */
-        embedded?: string[];
-        /**
          * A map of external dependencies and their correspondent UMD module identifiers. Map keys are TypeScript / EcmaScript module identifiers. Map values are UMD module ids. The purpose of this map is to correctly bundle an UMD module file (with `rollup`). By default, `rxjs`, `tslib` and `@angular/*` dependency symbols are supported.
          */
         umdModuleIds?: {
             [k: string]: any;
         };
-        /**
-         * Use "all" to keep all, "none" to remove all the comments or regexes
-         */
-        comments?: string;
-        /**
-         * Licesnse file path to prepend to the bundles
-         */
-        licensePath?: string;
         /**
          * A property to indicate whether your library is going to be bundling jsx/tsx files. This passes through to tsconfig - see https://www.typescriptlang.org/docs/handbook/jsx.html
          */
@@ -66,10 +54,6 @@ export interface NgPackageConfig {
          * Embed assets in css file using data URIs - see https://css-tricks.com/data-uris
          */
         cssUrl?: "none" | "inline";
-        /**
-         * DEPRECATED: Please use styleIncludePaths. sassIncludePaths will be removed in v3!
-         */
-        sassIncludePaths?: string[];
         /**
          * Any additional paths that should be used to resolve style imports
          */

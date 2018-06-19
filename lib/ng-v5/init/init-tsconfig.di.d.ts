@@ -1,4 +1,4 @@
-import { ParsedConfiguration } from '@angular/compiler-cli';
+import { ParsedConfiguration } from '@angular/compiler-cli/src/perform_compile';
 import { InjectionToken, Provider } from 'injection-js';
 import { Transform } from '../../brocc/transform';
 import { TransformProvider } from '../../brocc/transform.di';

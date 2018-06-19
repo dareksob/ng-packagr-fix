@@ -8,13 +8,13 @@ export declare const STATE_DONE: NodeState;
  */
 export declare class Node {
     readonly url: string;
-    private readonly count;
     constructor(url: string);
     type: string;
     data: any;
     state: NodeState;
     filter(by: (value: Node, index: number) => boolean): Node[];
     find(by: (value: Node, index: number) => boolean): Node | undefined;
+    some(by: (value: Node, index: number) => boolean): boolean;
     readonly dependents: Node[];
     private _dependents;
     private _dependees;

@@ -1,6 +1,5 @@
-import * as ng from '@angular/compiler-cli';
-import { ParsedConfiguration } from '@angular/compiler-cli';
-import { NgEntryPoint } from '../ng-package-format/entry-point';
+import * as ng from '@angular/compiler-cli/src/perform_compile';
+import { EntryPointNode } from '../ng-v5/nodes';
 /**
  * TypeScript configuration used internally (marker typer).
  */
@@ -19,4 +18,4 @@ export declare function createDefaultTsConfig(values?: TsConfig | string): TsCon
  * Initializes TypeScript Compiler options and Angular Compiler options by overriding the
  * default config with entry point-specific values.
  */
-export declare const initializeTsConfig: (defaultTsConfig: ParsedConfiguration, entryPoint: NgEntryPoint, outDir: string) => ParsedConfiguration;
+export declare const initializeTsConfig: (defaultTsConfig: ng.ParsedConfiguration, entryPoints: EntryPointNode[]) => void;

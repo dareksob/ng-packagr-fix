@@ -1,6 +1,6 @@
 import { SchemaClass } from '@ngtools/json-schema';
 import { NgPackageConfig } from '../../ng-package.schema';
-import { DirectoryPath, SourceFilePath } from './shared';
+import { DirectoryPath, SourceFilePath, CssUrl, DestinationFiles } from './shared';
 /**
  * An entry point - quoting Angular Package Format - is:
  *
@@ -31,27 +31,42 @@ import { DirectoryPath, SourceFilePath } from './shared';
  * The parent package of an entry point is reflected by `NgPackage`.
  */
 export declare class NgEntryPoint {
+    /** Values from the `package.json` file of this entry point. */
     readonly packageJson: any;
+    /** Values from either the `ngPackage` option (from `package.json`) or values from `ng-package.json`. */
     readonly ngPackageJson: NgPackageConfig;
+    /** Corresponding JSON schema class instantiated from `ngPackageJson` values. */
     private readonly $schema;
-    private readonly basePath;
+    /** Absolute directory path of this entry point's `package.json` location. */
+    readonly basePath: string;
+    /** XX: additional auto-configured data passed for scondary entry point's. Needs better docs. */
     private readonly secondaryData;
-    constructor(packageJson: any, ngPackageJson: NgPackageConfig, $schema: SchemaClass<NgPackageConfig>, basePath: string, secondaryData?: {
+    constructor(
+        /** Values from the `package.json` file of this entry point. */
+        packageJson: any, 
+        /** Values from either the `ngPackage` option (from `package.json`) or values from `ng-package.json`. */
+        ngPackageJson: NgPackageConfig, 
+        /** Corresponding JSON schema class instantiated from `ngPackageJson` values. */
+        $schema: SchemaClass<NgPackageConfig>, 
+        /** Absolute directory path of this entry point's `package.json` location. */
+        basePath: string, 
+        /** XX: additional auto-configured data passed for scondary entry point's. Needs better docs. */
+        secondaryData?: {
         [key: string]: any;
     });
     /** Absolute file path of the entry point's source code entry file. */
     readonly entryFilePath: SourceFilePath;
-    /** Absolute directory path of the entry point's 'package.json'. */
+    /** Whether or not the entrypoint is secondary */
+    readonly isSecondaryEntryPoint: boolean;
+    /** Absolute directory path of this entry point's 'package.json'. */
     readonly destinationPath: DirectoryPath;
+    readonly destinationFiles: DestinationFiles;
     $get(key: string): any;
     readonly entryFile: SourceFilePath;
     readonly cssUrl: CssUrl;
     readonly umdModuleIds: {
         [key: string]: string;
     };
-    readonly embedded: string[];
-    readonly comments: string;
-    readonly licensePath: string;
     readonly jsxConfig: string;
     readonly flatModuleFile: string;
     readonly styleIncludePaths: string[];
@@ -74,8 +89,12 @@ export declare class NgEntryPoint {
      */
     readonly amdId: string;
     private flattenModuleId(separator?);
-}
-export declare enum CssUrl {
-    inline = "inline",
-    none = "none",
+    /**
+     * Enables the `"sideEffects": false` flag in `package.json`.
+     * The flag is enabled and set to `false` by default which results in more aggressive optimizations applied by webpack v4 builds consuming the library.
+     * To override the default behaviour, you need to set `"sideEffects": true` explicitly in your `package.json`.
+     *
+     * @link https://github.com/webpack/webpack/tree/master/examples/side-effects
+     */
+    readonly sideEffects: boolean | string[];
 }

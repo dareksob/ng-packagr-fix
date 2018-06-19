@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { BuildGraph } from '../brocc/build-graph';
 import { Transform } from '../brocc/transform';
 /**

@@ -1,2 +1,2 @@
 import { AsyncOptions } from 'cpx';
-export declare const copyFiles: (src: string, dest: string, options?: AsyncOptions) => Promise<void>;
+export declare function copyFiles(src: string | string[], dest: string, options?: AsyncOptions): Promise<void[]>;

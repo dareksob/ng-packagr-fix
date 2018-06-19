@@ -28,8 +28,4 @@ exports.isStyleUrls = ng_ts_ast_1.isStyleUrls;
 exports.isTemplateUrl = ng_ts_ast_1.isTemplateUrl;
 var transform_component_1 = require("./lib/ts/transform-component");
 exports.transformComponent = transform_component_1.transformComponent;
-/**
- * Deprecations that are going to be removed in v3.
- */
-__export(require("./lib/deprecations"));
 //# sourceMappingURL=public_api.js.map

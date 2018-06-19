@@ -15,13 +15,8 @@ export declare const writePackageTransform: Transform;
  * flattened JavaScript bundles, type definitions, (...).
  *
  * @param entryPoint An entry point of an Angular package / library
- * @param binaries Binary artefacts (bundle files) to merge into `package.json`
+ * @param additionalProperties Additional properties, e.g. binary artefacts (bundle files), to merge into `package.json`
  */
-export declare function writePackageJson(entryPoint: NgEntryPoint, pkg: NgPackage, binaries: {
-    [key: string]: string;
+export declare function writePackageJson(entryPoint: NgEntryPoint, pkg: NgPackage, additionalProperties: {
+    [key: string]: string | boolean | string[];
 }): Promise<void>;
-/**
- * Copies the JavaScript bundles from the staging directory to the npm package.
- */
-export declare function copyJavaScriptBundles(stageDir: string, destDir: string): Promise<void>;
-export declare function copyTypingsAndMetadata(from: string, to: string): Promise<void>;

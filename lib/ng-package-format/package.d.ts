@@ -56,8 +56,6 @@ export declare class NgPackage {
     readonly deleteDestPath: boolean;
     /** Absolute path of the package's destination directory. */
     readonly dest: DirectoryPath;
-    /** Absolute path of the package's working directory (used for intermediate file storage). */
-    readonly workingDirectory: DirectoryPath;
     readonly keepLifecycleScripts: boolean;
     readonly whitelistedNonPeerDependencies: string[];
     private absolutePathFromPrimary(key);

@@ -3,6 +3,7 @@ import { Node } from '../brocc/node';
 import { NgEntryPoint } from '../ng-package-format/entry-point';
 import { NgPackage } from '../ng-package-format/package';
 import { TsConfig } from '../ts/tsconfig';
+import { DestinationFiles } from '../ng-package-format/shared';
 export declare const TYPE_NG_PACKAGE = "application/ng-package";
 export declare const TYPE_NG_ENTRY_POINT = "application/ng-entry-point";
 export declare const TYPE_STYLESHEET = "text/css";
@@ -24,6 +25,7 @@ export declare function byEntryPoint(): {
     and: (criteria: (node: Node) => boolean) => (node: Node) => boolean;
 };
 export declare function isEntryPointInProgress(): (node: Node) => boolean;
+export declare function isEntryPointDirty(): (node: Node) => boolean;
 export declare function isFileUrl(value: string): boolean;
 export declare function fileUrl(path: string): string;
 export declare function fileUrlPath(url: string): string;
@@ -33,9 +35,8 @@ export declare function tsUrl(path: string): string;
 export declare class EntryPointNode extends Node {
     readonly type: string;
     data: {
+        destinationFiles: DestinationFiles;
         entryPoint: NgEntryPoint;
-        outDir: string;
-        stageDir: string;
         tsConfig?: TsConfig;
     };
 }
